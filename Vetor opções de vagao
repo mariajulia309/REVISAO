@@ -1,0 +1,52 @@
+package exercicio1;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author profslpa
+ */
+public class Exercicio1 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner entrada = new Scanner(System.in);
+        final int TOTAL_CARROS = 5;
+        int[] vagao = new int[TOTAL_CARROS];
+        int totalp;
+
+        //ENTRADA
+        totalp = 0;
+        for (int i = 0; i < TOTAL_CARROS; i++) {
+            do {
+                System.out.println("Digite a quantidade de passageiros no vagao " + (i + 1) + ":");
+                vagao[i] = entrada.nextInt();
+            } while (vagao[i] < 0 || vagao[i] > 250);
+            totalp += vagao[i];
+         // totalp = totalp + vagao[i];
+
+        }
+        //PROCESSAMENTO/SAIDA
+
+        for (int i = 0; i < TOTAL_CARROS; i++) {
+            System.out.print("Carro " + (i + 1) + " " + vagao[i]);
+            if (vagao[i] < 51) {
+                System.out.println(" - Azul");
+            } else {
+                if (vagao[i] < 101) {
+                    System.out.println(" - Amarelo");
+                } else {
+                    if (vagao[i] < 151) {
+                        System.out.println(" - Laranja");
+                    } else {
+                        System.out.println(" - Vermelho");
+                    }
+                }
+            }
+        }
+        System.out.println("Total de passageiros: " + totalp);
+    }
+}
